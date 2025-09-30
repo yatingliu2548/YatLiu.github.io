@@ -5,95 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yating Liu</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#ffffff; --text:#1b1f23; --muted:#556; --link:#1565c0; --line:#e6e8eb; --card:#f7f9fc;
-    }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0d1117; --text:#e6edf3; --muted:#9aa4b2; --link:#79b8ff; --line:#1f2630; --card:#0f1520;
-      }
-    }
-    html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height:1.55;}
-    a{color:var(--link); text-decoration:underline;}
-    .wrap{max-width:1000px; margin:48px auto 96px; padding:0 20px;}
-    header h1{font-size:56px; margin:0 0 12px; letter-spacing:0.2px;}
-    header h1 .strong{font-weight:800;}
-    header h1 .light{font-weight:300;}
-    .grid{
-      display:grid; grid-template-columns: 1.2fr 0.9fr; gap:32px; align-items:start;
-    }
-    .intro p{margin:0 0 16px; color:var(--text);}
-    .card{
-      background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px;
-    }
-    .photo{width:100%; border-radius:14px; display:block; border:1px solid var(--line);}
-    .right-small{font-size:14px; color:var(--muted); margin-top:8px; text-align:center;}
-    hr{border:none; border-top:1px solid var(--line); margin:28px 0;}
-    h2{font-size:28px; margin:12px 0 12px; font-weight:700; letter-spacing:0.3px;}
-    ul{margin:8px 0 0 20px; padding:0;}
-    li{margin:10px 0;}
-    /* Responsive */
-    @media (max-width: 860px){
-      header h1{font-size:42px;}
-      .grid{grid-template-columns:1fr; gap:20px;}
-    }
-  </style>
-  /* --- News --- */
-  .news{margin-top:24px;border-top:1px solid var(--line);padding-top:12px}
-  .news h2{margin-top:12px}
-  .news-list{margin:0;padding:0;list-style:none;display:grid;gap:18px}
-  .news-item{display:grid;grid-template-columns:150px 1fr;column-gap:24px;align-items:start}
-  .news-date{font-weight:700}
-  .news-text em{font-style:italic}
-  .news-text strong{font-weight:800}
-  @media (max-width:720px){.news-item{grid-template-columns:1fr;row-gap:6px}}
+    /* ===== Theme & base ===== */
+    :root{--bg:#ffffff;--text:#111;--muted:#666;--link:#1557b0;--line:#e6e8eb;--card:#f7f9fc}
+    [data-theme="dark"]{--bg:#0d1117;--text:#e6edf3;--muted:#9aa4b2;--link:#79b8ff;--line:#1f2630;--card:#0f1520}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+    a{color:var(--link);text-decoration:underline}
+    .wrap{max-width:1000px;margin:48px auto 96px;padding:0 20px}
 
-  /* --- Handles --- */
-  .handles{margin-top:36px}
-  .handles h3{font-size:22px;font-weight:700;margin:0 0 14px}
-  .handle-row{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
-  .handle{width:84px;display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;color:var(--muted)}
-  .handle .circle{width:64px;height:64px;border-radius:50%;border:1.5px solid rgba(127,127,127,.35);
-                  display:grid;place-items:center;transition:transform .15s,border-color .15s,background .15s}
-  .handle svg{width:28px;height:28px;fill:none;stroke:var(--text);stroke-width:1.8}
-  .handle .label{font-size:14px;color:#8a95a3}
-  @media (prefers-color-scheme: dark){.handle .label{color:#aab4c0}}
-  .handle:hover .circle,.handle:focus .circle{transform:translateY(-2px);border-color:var(--link);background:rgba(21,101,192,.08)}
+    /* ===== Top nav ===== */
+    .topnav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:10}
+    .topnav .inner{max-width:1000px;margin:0 auto;padding:12px 20px;display:flex;gap:28px;align-items:center}
+    .topnav a{font-size:22px;color:var(--text);opacity:.85;text-decoration:none}
+    .topnav a:hover{opacity:1}
+    .topnav a.active{color:var(--link);font-weight:700;opacity:1}
+    .grow{flex:1}
+    .toggle{border:0;background:transparent;cursor:pointer;padding:6px;border-radius:8px}
+    .toggle:hover{background:rgba(127,127,127,.12)}
+    .toggle svg{width:22px;height:22px;display:block;fill:currentColor;color:var(--text)}
+
+    /* ===== Hero / layout ===== */
+    header h1{font-size:56px;margin:0 0 12px;letter-spacing:.2px}
+    header h1 .strong{font-weight:800}
+    header h1 .light{font-weight:300}
+    .grid{display:grid;grid-template-columns:1.2fr .9fr;gap:32px;align-items:start}
+    .intro p{margin:0 0 16px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+    .photo{width:100%;border-radius:14px;display:block;border:1px solid var(--line)}
+    .right-small{font-size:14px;color:var(--muted);margin-top:8px;text-align:center}
+    hr{border:none;border-top:1px solid var(--line);margin:28px 0}
+    h2{font-size:28px;margin:12px 0 12px;font-weight:700;letter-spacing:.3px}
+    ul{margin:8px 0 0 20px;padding:0}
+    li{margin:10px 0}
+    @media (max-width:860px){header h1{font-size:42px}.grid{grid-template-columns:1fr;gap:20px}}
+
+    /* ===== News ===== */
+    .news{margin-top:24px;border-top:1px solid var(--line);padding-top:12px}
+    .news h2{margin-top:12px}
+    .news-list{margin:0;padding:0;list-style:none;display:grid;gap:18px}
+    .news-item{display:grid;grid-template-columns:150px 1fr;column-gap:24px;align-items:start}
+    .news-date{font-weight:700}
+    .news-text em{font-style:italic}
+    .news-text strong{font-weight:800}
+    @media (max-width:720px){.news-item{grid-template-columns:1fr;row-gap:6px}}
+
+    /* ===== Handles ===== */
+    .handles{margin-top:36px}
+    .handles h3,.handles h2{font-size:22px;font-weight:700;margin:0 0 14px}
+    .handle-row{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
+    .handle{width:84px;display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;color:var(--muted)}
+    .handle .circle{width:64px;height:64px;border-radius:50%;border:1.5px solid rgba(127,127,127,.35);display:grid;place-items:center;transition:transform .15s,border-color .15s,background .15s}
+    .handle svg{width:28px;height:28px;fill:none;stroke:var(--text);stroke-width:1.8}
+    .handle .label{font-size:14px;color:#8a95a3}
+    [data-theme="dark"] .handle .label{color:#aab4c0}
+    .handle:hover .circle,.handle:focus .circle{transform:translateY(-2px);border-color:var(--link);background:rgba(21,101,192,.08)}
   </style>
 </head>
 <body>
-  <div class="wrap">
 
+  <!-- Top navigation -->
+  <nav class="topnav" role="navigation" aria-label="Primary">
+    <div class="inner">
+      <a href="/index.html" class="active">about</a>
+      <a href="/publications.html">publications</a>
+      <a href="/teaching.html">teaching</a>
+      <a href="/talks.html">talks</a>
+      <div class="grow"></div>
+      <button class="toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="wrap">
     <!-- Name -->
     <header>
-      <!-- Make first name bold, last name light (like the screenshot) -->
       <h1><span class="strong">Yating</span> <span class="light">Liu</span></h1>
     </header>
 
     <!-- Top two-column section -->
     <section class="grid">
-
       <!-- Left: welcome + bio paragraphs -->
       <div class="intro">
         <p>Welcome to my homepage!</p>
 
         <p>
-          I am a PhD student in the Department of Statistics at the University of Chicago. 
-          I am fortunate to be advised by Professor <a href="https://donnate.github.io/" target=&ldquo;blank&rdquo;>Claire Donnat</a> and Professor <a href="https://mkolar.coffeejunkies.org/" target=&ldquo;blank&rdquo;>Mladen Kolar</a>.
+          I am a PhD student in the Department of Statistics at the University of Chicago.
+          I am fortunate to be advised by Professor
+          <a href="https://donnate.github.io/" target="_blank" rel="noopener">Claire Donnat</a> and Professor
+          <a href="https://mkolar.coffeejunkies.org/" target="_blank" rel="noopener">Mladen Kolar</a>.
         </p>
 
         <p>
-          Prior to PhD, I earned my undergraduate degree from Rutgers University and completed my master's in Statistics from the University of Chicago. 
-          I was fortunate to work with Professor <a href="https://sites.rutgers.edu/javier-cabrera/" target=&ldquo;blank&rdquo;>Javier Cabrera and Professor<a href="https://sites.google.com/view/minxu/home" target=&ldquo;blank&rdquo;>Min Xu</a>.
+          Prior to my PhD, I earned my undergraduate degree from Rutgers University and completed my master’s in Statistics at the University of Chicago.
+          I was fortunate to work with Professor
+          <a href="https://sites.rutgers.edu/javier-cabrera/" target="_blank" rel="noopener">Javier Cabrera</a> and Professor
+          <a href="https://sites.google.com/view/minxu/home" target="_blank" rel="noopener">Min Xu</a>.
         </p>
 
         <p>
-          My research focuses on statistical theory and methodology for high-dimensional and multimodal data. 
-          I work on structured estimation, latent factor models, and network analysis, with recent projects on uncertainty quantification under weakly specified distributions and in settings where fully supervised data are unavailable.
+          My research focuses on statistical theory and methodology for high-dimensional and multimodal data.
+          I work on structured estimation, latent factor models, and network analysis, with recent projects on uncertainty
+          quantification under weakly specified distributions and in settings where fully supervised data are unavailable.
         </p>
       </div>
 
@@ -102,8 +117,8 @@
         <div class="card">
           <img class="photo" src="YT.jpg" alt="Yating Liu headshot" />
           <div class="right-small">
-            <a href="mailto:yatingliu@uchicago.edu">email</a>, 
-            <a href="https://scholar.google.com/citations?user=TpBS2PkAAAAJ&hl=en">google scholar</a>
+            <a href="mailto:yatingliu@uchicago.edu">email</a>,
+            <a href="https://scholar.google.com/citations?user=TpBS2PkAAAAJ&hl=en" target="_blank" rel="noopener">google scholar</a>
           </div>
         </div>
       </aside>
@@ -117,110 +132,132 @@
       <ul>
         <li>
           <strong>Distribution-free inference.</strong>
-          Uncertainty quantification for black-box models, including reliable inferences when models are misspecified.
-          (<a href="https://www.arxiv.org/abs/2509.21479">WJLJD25</a>, <a href="https://www.arxiv.org/abs/2509.24100">LJWJD25</a>).
+          Uncertainty quantification for black-box models, including reliable inferences when models are misspecified
+          (<a href="https://www.arxiv.org/abs/2509.21479" target="_blank" rel="noopener">WJLJD25</a>,
+           <a href="https://www.arxiv.org/abs/2509.24100" target="_blank" rel="noopener">LJWJD25</a>).
         </li>
         <li>
-          <strong>Latent Factor Analysis via Spectral Methods .</strong>
-          Theoretical analysis of (unsupervised) weighted classification methods with applications in biology, text analysis, behavioral science and multilevel data.
-          (<a href="https://arxiv.org/abs/2501.00535">LD25</a>, <a href="https://arxiv.org/abs/2310.06730">LTD23</a>).
+          <strong>Latent factor analysis via spectral methods.</strong>
+          Theoretical analysis of (unsupervised) weighted classification with applications in biology, text analysis, behavioral science, and multilevel data
+          (<a href="https://arxiv.org/abs/2501.00535" target="_blank" rel="noopener">LD25</a>,
+           <a href="https://arxiv.org/abs/2310.06730" target="_blank" rel="noopener">LTD23</a>).
         </li>
         <li>
-          <strong>Latent Structure Comparison between Networks.</strong>
+          <strong>Latent structure comparison between networks.</strong>
           Graphical models under weak distributional assumptions, with valid inference for latent structural comparisons.
         </li>
       </ul>
     </section>
 
-  <!-- ===== NEWS ===== -->
-<section class="news" aria-label="News">
-  <h2>Timeline</h2>
-  <ul class="news-list">
-    <li class="news-item">
-      <div class="news-date">June-Sep, 2025</div>
-      <div class="news-text">
-        Tessent Research Intern at Siemens EDA
-      </div>
-    </li>
-    <li class="news-item">
-      <div class="news-date">2022</div>
-      <div class="news-text">
-        PhD student in Statistics at University of Chicago 
-      </div>
-    </li>
-    <li class="news-item">
-      <div class="news-date">2020</div>
-      <div class="news-text">
-        Master student in Statistics at University of Chicago
-      </div>
-    </li>
-    <li class="news-item">
-      <div class="news-date">2020</div>
-      <div class="news-text">
-        I’m honored to be awarded the <a href="https://math.rutgers.edu/academics/undergraduate/news-and-information/awards-prizes-scholarships">Richard Morris Award!</a>
-      </div>
-    </li>
-    <li class="news-item">
-      <div class="news-date">2016</div>
-      <div class="news-text">
-        Undergraduate student at Rutgers University
-      </div>
-    </li>
-    <!-- add more items by duplicating this block -->
-  </ul>
-</section>
+    <!-- ===== NEWS ===== -->
+    <section class="news" aria-label="News">
+      <h2>Timeline</h2>
+      <ul class="news-list">
+        <li class="news-item">
+          <div class="news-date">Jun–Sep 2025</div>
+          <div class="news-text">Tessent Research Intern at Siemens EDA.</div>
+        </li>
+        <li class="news-item">
+          <div class="news-date">2022</div>
+          <div class="news-text">PhD student in Statistics at the University of Chicago.</div>
+        </li>
+        <li class="news-item">
+          <div class="news-date">2020</div>
+          <div class="news-text">Master’s student in Statistics at the University of Chicago.</div>
+        </li>
+        <li class="news-item">
+          <div class="news-date">2020</div>
+          <div class="news-text">Awarded the
+            <a href="https://math.rutgers.edu/academics/undergraduate/news-and-information/awards-prizes-scholarships" target="_blank" rel="noopener">Richard Morris Award</a>.
+          </div>
+        </li>
+        <li class="news-item">
+          <div class="news-date">2016</div>
+          <div class="news-text">Undergraduate student at Rutgers University.</div>
+        </li>
+      </ul>
+    </section>
 
-<!-- ===== HANDLES ===== -->
-<section class="handles" aria-label="Online handles">
-  <h2>Where to find me on the internet</h2>
-  <div class="handle-row">
+    <!-- ===== HANDLES ===== -->
+    <section class="handles" aria-label="Online handles">
+      <h2>Where to find me on the internet</h2>
+      <div class="handle-row">
 
-    <!-- Email -->
-    <a class="handle" href="mailto:yatingliu@uchicago.edu" aria-label="Email">
-      <div class="circle">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3 6h18v12H3z"></path>
-          <path d="M3 7l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-      </div>
-      <div class="label">Email</div>
-    </a>
+        <!-- Email -->
+        <a class="handle" href="mailto:yatingliu@uchicago.edu" aria-label="Email">
+          <div class="circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h18v12H3z"></path>
+              <path d="M3 7l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div class="label">Email</div>
+        </a>
 
-    <!-- GitHub -->
-    <a class="handle" href="https://github.com/YatLiu.github.io" target="_blank" rel="noopener" aria-label="GitHub">
-      <div class="circle">
-        <svg viewBox="0 0 24 24" aria-hidden="true" stroke="none" fill="currentColor">
-          <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.8-.25.8-.56v-2c-3.26.71-3.95-1.4-3.95-1.4-.53-1.35-1.3-1.71-1.3-1.71-1.06-.73.08-.72.08-.72 1.17.08 1.78 1.21 1.78 1.21 1.04 1.78 2.73 1.27 3.4.97.1-.77.41-1.27.74-1.56-2.6-.3-5.34-1.3-5.34-5.77 0-1.27.46-2.3 1.2-3.11-.12-.3-.52-1.52.11-3.17 0 0 .98-.31 3.2 1.19a11.1 11.1 0 0 1 5.83 0c2.22-1.5 3.2-1.19 3.2-1.19.63 1.65.23 2.87.11 3.17.75.81 1.2 1.84 1.2 3.11 0 4.48-2.74 5.46-5.36 5.76.42.36.8 1.07.8 2.16v3.2c0 .31.21.67.81.56A11.5 11.5 0 0 0 12 .5Z"/>
-        </svg>
-      </div>
-      <div class="label">GitHub</div>
-    </a>
+        <!-- GitHub (profile) -->
+        <a class="handle" href="https://github.com/YatLiu" target="_blank" rel="noopener" aria-label="GitHub">
+          <div class="circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true" stroke="none" fill="currentColor">
+              <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.8-.25.8-.56v-2c-3.26.71-3.95-1.4-3.95-1.4-.53-1.35-1.3-1.71-1.3-1.71-1.06-.73.08-.72.08-.72 1.17.08 1.78 1.21 1.78 1.21 1.04 1.78 2.73 1.27 3.4.97.1-.77.41-1.27.74-1.56-2.6-.3-5.34-1.3-5.34-5.77 0-1.27.46-2.3 1.2-3.11-.12-.3-.52-1.52.11-3.17 0 0 .98-.31 3.2 1.19a11.1 11.1 0 0 1 5.83 0c2.22-1.5 3.2-1.19 3.2-1.19.63 1.65.23 2.87.11 3.17.75.81 1.2 1.84 1.2 3.11 0 4.48-2.74 5.46-5.36 5.76.42.36.8 1.07.8 2.16v3.2c0 .31.21.67.81.56A11.5 11.5 0 0 0 12 .5Z"/>
+            </svg>
+          </div>
+          <div class="label">GitHub</div>
+        </a>
 
-    <!-- Google Scholar -->
-    <a class="handle" href="https://scholar.google.com/citations?user=TpBS2PkAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
-      <div class="circle">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3 11l9-7 9 7-9 6-9-6z"></path>
-          <path d="M12 18v4" stroke-linecap="round"></path>
-        </svg>
-      </div>
-      <div class="label">Scholar</div>
-    </a>
+        <!-- Google Scholar -->
+        <a class="handle" href="https://scholar.google.com/citations?user=TpBS2PkAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+          <div class="circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 11l9-7 9 7-9 6-9-6z"></path>
+              <path d="M12 18v4" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <div class="label">Scholar</div>
+        </a>
 
-   
-    <!-- LinkedIn -->
-    <a class="handle" href="https://www.linkedin.com/in/yating-liu-882516153/" target="_blank" rel="noopener" aria-label="LinkedIn">
-      <div class="circle">
-        <svg viewBox="0 0 24 24" aria-hidden="true" stroke="none" fill="currentColor">
-          <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3zM10 9h3.8v1.8h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.2c0-1.24-.02-2.83-1.73-2.83-1.73 0-2 1.35-2 2.74V21h-4V9Z"/>
-        </svg>
+        <!-- LinkedIn -->
+        <a class="handle" href="https://www.linkedin.com/in/yating-liu-882516153/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <div class="circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true" stroke="none" fill="currentColor">
+              <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3zM10 9h3.8v1.8h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.2c0-1.24-.02-2.83-1.73-2.83-1.73 0-2 1.35-2 2.74V21h-4V9Z"/>
+            </svg>
+          </div>
+          <div class="label">LinkedIn</div>
+        </a>
+
       </div>
-      <div class="label">LinkedIn</div>
-    </a>
+    </section>
 
   </div>
-</section>
 
-  </div>
+  <!-- Theme toggle + active-link script -->
+  <script>
+    (function(){
+      const key="site-theme";
+      const saved=localStorage.getItem(key);
+      const prefersDark=window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const start=saved || (prefersDark?"dark":"light");
+      document.documentElement.setAttribute("data-theme", start);
+      const icon=document.getElementById("themeIcon");
+      const setIcon=(mode)=>{
+        icon.innerHTML = mode==="dark"
+          ? '<path d="M12 4V2M12 22v-2M4 12H2m20 0h-2M5 5 3.6 3.6M20.4 20.4 19 19M5 19 3.6 20.4M20.4 3.6 19 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="currentColor"/>'
+          : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/>';
+      };
+      setIcon(start);
+      document.getElementById("themeToggle").onclick=()=>{
+        const now=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+        document.documentElement.setAttribute("data-theme", now);
+        localStorage.setItem(key, now); setIcon(now);
+      };
+    })();
+    (function(){ // mark active nav link
+      const here = location.pathname.replace(/\/+$/,'') || "/index.html";
+      document.querySelectorAll('.topnav a').forEach(a=>{
+        const href=a.getAttribute('href').replace(/\/+$/,'');
+        if(href===here){ a.classList.add('active'); }
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>publications — Yating Liu</title>
+
+<!-- Same font as index -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== Theme + base (match index.html) ===== */
+  :root{--bg:#ffffff;--text:#111;--muted:#666;--link:#1557b0;--line:#e6e8eb;--chip:#f2f4f7}
+  [data-theme="dark"]{--bg:#0d1117;--text:#e6edf3;--muted:#9aa4b2;--link:#79b8ff;--line:#1f2630;--chip:#0f1724}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+  a{color:var(--link);text-decoration:none}
+  .wrap{max-width:1000px;margin:28px auto 96px;padding:0 20px}
+
+  /* ===== Top nav (same as index) ===== */
+  .topnav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:10}
+  .topnav .inner{max-width:1000px;margin:0 auto;padding:12px 20px;display:flex;gap:28px;align-items:center}
+  .topnav a{font-size:22px;color:var(--text);opacity:.85}
+  .topnav a:hover{opacity:1}
+  .topnav a.active{color:var(--link);font-weight:700;opacity:1}
+  .grow{flex:1}
+  .toggle{border:0;background:transparent;cursor:pointer;padding:6px;border-radius:8px}
+  .toggle:hover{background:rgba(127,127,127,.12)}
+  .toggle svg{width:22px;height:22px;display:block;fill:currentColor;color:var(--text)}
+
+  /* ===== Page header ===== */
+  h1{font-size:44px;font-weight:800;margin:28px 0 6px}
+  .hr{height:1px;background:var(--line);margin:16px 0 24px}
+
+  /* ===== Publications list ===== */
+  .pubs{display:grid;gap:28px}
+  .pub{display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:start}
+  @media (max-width:720px){.pub{grid-template-columns:1fr}}
+
+  /* left chip */
+  .chip{
+    display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px;font-weight:700;
+    background:var(--chip);border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 0 rgba(0,0,0,.08);color:#3a3a3a
+  }
+  [data-theme="dark"] .chip{border-color:rgba(255,255,255,.1);color:#cfd7e3}
+  .chip.amber{background:#fdecc8}
+  .chip.teal{background:#d5f3f6}
+  .chip.blue{background:#d9e9ff}
+
+  /* right content */
+  .title{font-size:20px;font-weight:700;margin:0 0 4px}
+  .authors a{text-decoration:underline dotted}
+  .meta{color:var(--muted);font-style:italic;margin:6px 0 10px}
+
+  /* buttons */
+  .btns{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;font-size:12px;letter-spacing:.3px;padding:7px 12px;border-radius:6px;
+    border:1px solid var(--line); color:var(--text); background:transparent;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .sep{height:1px;background:var(--line);margin-top:10px}
+</style>
+</head>
+<body>
+
+<!-- ===== Nav (same structure as index) ===== -->
+<nav class="topnav" role="navigation" aria-label="Primary">
+  <div class="inner">
+    <a href="/index.html">about</a>
+    <a href="/publications.html" class="active">publications</a>
+    <a href="/teaching.html">teaching</a>
+    <a href="/talks.html">talks</a>
+    <div class="grow"></div>
+    <button class="toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <h1>publications</h1>
+  <div class="hr"></div>
+
+  <section class="pubs">
+
+    <!-- ========= EXAMPLE ITEM 1 ========= -->
+    <article class="pub">
+      <div>
+        <span class="chip amber">Uncertainty quantification</span>
+      </div>
+      <div>
+        <div class="title">SpeedCP: Fast Kernel-based Conditional Conformal Prediction</div>
+        <div class="authors">
+          <a href="/index.html">Yating Liu</a>*, Yeo Jin Jung*,  Zixuan Wu, So Won Jeong, Claire Donnat
+        </div>
+        <div class="meta">arXiv preprint <em>arXiv:2509.24100</em>, 2025</div>
+        <div class="btns">
+          <a class="btn" href="https://www.arxiv.org/abs/2509.24100" target="_blank" rel="noopener">ARXIV</a>
+          <a class="btn" href="https://github.com/yeojin-jung/speedcp" target="_blank" rel="noopener">CODE</a>
+        </div>
+        <div class="sep"></div>
+      </div>
+    </article>
+
+    <article class="pub">
+        <div>
+          <span class="chip amber">Uncertainty quantification</span>
+        </div>
+        <div>
+          <div class="title">Filtering with Confidence: When Data Augmentation Meets Conformal Prediction</div>
+          <div class="authors">
+            <a href="/index.html">Zixuan Wu, So Won Jeong, Yating Liu</a>, Yeo Jin Jung,  Claire Donnat
+          </div>
+          <div class="meta">arXiv preprint <em>arXiv:2509.21479</em>, 2025</div>
+          <div class="btns">
+            <a class="btn" href="https://www.arxiv.org/abs/2509.21479" target="_blank" rel="noopener">ARXIV</a>
+            <a class="btn" href="https://github.com/yeojin-jung/speedcp" target="_blank" rel="noopener">CODE</a>
+          </div>
+          <div class="sep"></div>
+        </div>
+      </article>
+
+    <!-- ========= EXAMPLE ITEM 2 ========= -->
+    <article class="pub">
+      <div>
+        <span class="chip teal">Topic modeling</span>
+      </div>
+      <div>
+        <div class="title">Sparse topic modeling via spectral decomposition and thresholding</div>
+        <div class="authors">
+          <a href="/index.html">Huy Tran*, Yating Liu*</a>, Claire Donnat
+        </div>
+        <div class="meta">Journal of Machine Learning Research, <em>accepted</em>, 2025</div>
+        <div class="btns">
+          <a class="btn" href="https://arxiv.org/abs/2310.06730" target="_blank" rel="noopener">ARXIV</a>
+          <a class="btn" href="https://github.com/yatingliu2548/topic-modeling" target="_blank" rel="noopener">CODE</a>
+
+        </div>
+        <div class="sep"></div>
+      </div>
+    </article>
+    <article class="pub">
+        <div>
+          <span class="chip teal">Topic modeling</span>
+        </div>
+        <div>
+          <div class="title">Tensor Topic Modeling Via HOSVD</div>
+          <div class="authors">
+            <a href="/index.html">Yating Liu</a>, Claire Donnat
+          </div>
+          <div class="meta">arXiv preprint <em>arXiv:2501.00535</em>, 2025</div>
+          <div class="btns">
+            <a class="btn" href="https://arxiv.org/abs/2501.00535" target="_blank" rel="noopener">ARXIV</a>
+            <a class="btn" href="https://github.com/yatingliu2548/tensor-topic-modeling" target="_blank" rel="noopener">CODE</a>
+            <a class="btn" href="https://drive.google.com/file/d/19EQ67KhFpnvdbgT4kvYEWIqqQx8zOixb/view?usp=sharing" target="_blank" rel="noopener">POSTER</a>
+        </div>
+          <div class="sep"></div>
+        </div>
+      </article>
+
+    <!-- ========= EXAMPLE ITEM 3 ========= -->
+    <!--<article class="pub">
+      <div>
+        <span class="chip blue">Multi-modal</span>
+      </div>
+      <div>
+        <div class="title">Multi-modal contrastive learning adapts to intrinsic dimensions of shared latent variables</div>
+        <div class="authors">
+          <a href="/index.html">Yating Liu</a>, Cong Ma, Zongming Ma
+        </div>
+        <div class="meta"><em>Advances in Neural Information Processing Systems (NeurIPS)</em>, accepted, 2025</div>
+        <div class="btns">
+          <a class="btn" href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener">ARXIV</a>
+        </div>
+        <div class="sep"></div>
+      </div>
+    </article>-->
+
+    <!-- ======= Add more items by duplicating the <article class="pub">… ======= -->
+
+  </section>
+</div>
+
+<!-- ===== Theme toggle + active-link script (same as index) ===== -->
+<script>
+(function(){
+  const key="site-theme";
+  const saved=localStorage.getItem(key);
+  const prefersDark=window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const start=saved || (prefersDark?"dark":"light");
+  document.documentElement.setAttribute("data-theme", start);
+  const icon=document.getElementById("themeIcon");
+  const setIcon=(mode)=>{
+    icon.innerHTML = mode==="dark"
+      ? '<path d="M12 4V2M12 22v-2M4 12H2m20 0h-2M5 5 3.6 3.6M20.4 20.4 19 19M5 19 3.6 20.4M20.4 3.6 19 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="currentColor"/>'
+      : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/>';
+  };
+  setIcon(start);
+  document.getElementById("themeToggle").onclick=()=>{
+    const now=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+    document.documentElement.setAttribute("data-theme", now);
+    localStorage.setItem(key, now); setIcon(now);
+  };
+})();
+(function(){ // mark active nav
+  const here = location.pathname.replace(/\/+$/,'') || "/index.html";
+  document.querySelectorAll('.topnav a').forEach(a=>{
+    const href=a.getAttribute('href').replace(/\/+$/,'');
+    if(href===here){ a.classList.add('active'); }
+  });
+})();
+</script>
+</body>
+</html>

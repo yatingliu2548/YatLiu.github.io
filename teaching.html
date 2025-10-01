@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>teaching — Yating Liu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== Theme + base (match index) ===== */
+  :root{--bg:#ffffff;--text:#111;--muted:#666;--link:#1557b0;--line:#e6e8eb;--chip:#f2f4f7}
+  [data-theme="dark"]{--bg:#0d1117;--text:#e6edf3;--muted:#9aa4b2;--link:#79b8ff;--line:#1f2630;--chip:#0f1724}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+  a{color:var(--link);text-decoration:none}
+  .wrap{max-width:1000px;margin:28px auto 96px;padding:0 20px}
+
+  /* ===== Top nav (same as index) ===== */
+  .topnav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:10}
+  .topnav .inner{max-width:1000px;margin:0 auto;padding:12px 20px;display:flex;gap:28px;align-items:center}
+  .topnav a{font-size:22px;color:var(--text);opacity:.85}
+  .topnav a:hover{opacity:1}
+  .topnav a.active{color:var(--link);font-weight:700;opacity:1}
+  .grow{flex:1}
+  .toggle{border:0;background:transparent;cursor:pointer;padding:6px;border-radius:8px}
+  .toggle:hover{background:rgba(127,127,127,.12)}
+  .toggle svg{width:22px;height:22px;display:block;fill:currentColor;color:var(--text)}
+
+  /* ===== Page header ===== */
+  h1{font-size:44px;font-weight:800;margin:28px 0 6px}
+  .hr{height:1px;background:var(--line);margin:16px 0 24px}
+
+  /* ===== Teaching list ===== */
+  .courses{display:grid;gap:26px}
+  .course{display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:start}
+  @media (max-width:720px){.course{grid-template-columns:1fr}}
+
+  /* term chip on the left */
+  .chip{
+    display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px;font-weight:700;
+    background:var(--chip);border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 0 rgba(0,0,0,.08);color:#3a3a3a
+  }
+  [data-theme="dark"] .chip{border-color:rgba(255,255,255,.1);color:#cfd7e3}
+  .chip.amber{background:#fdecc8}
+  .chip.teal{background:#d5f3f6}
+  .chip.blue{background:#d9e9ff}
+  .chip.gray{background:#eceff3}
+
+  /* right column */
+  .title{font-size:20px;font-weight:700;margin:0 0 4px}
+  .role{color:var(--muted);margin:0 0 8px}
+  .desc{margin:0 0 10px}
+  .meta{color:var(--muted);font-style:italic;margin:4px 0 10px}
+
+  /* buttons */
+  .btns{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;font-size:12px;letter-spacing:.3px;padding:7px 12px;border-radius:6px;
+    border:1px solid var(--line); color:var(--text); background:transparent;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .sep{height:1px;background:var(--line);margin-top:10px}
+</style>
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav class="topnav" role="navigation" aria-label="Primary">
+  <div class="inner">
+    <a href="/index.html">about</a>
+    <a href="/publications.html">publications</a>
+    <a href="/teaching.html" class="active">teaching</a>
+    <a href="/talks.html">talks</a>
+    <div class="grow"></div>
+    <button class="toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <h1>teaching</h1>
+  <div class="hr"></div>
+
+  <!-- ===== Courses ===== -->
+  <section class="courses">
+    <h2>University of Chicago</h2>
+
+    <!-- Example 1 -->
+    <article class="course">
+      <div>
+        <div class="title">STAT 226: Analysis of Categorical Data</div>
+        <div class="role">Winter 2023: Teaching Assistant</div>
+        <div class="role">Winter 2025: Teaching Assistant</div>
+        <!-- <div class="btns">
+          <a class="btn" href="#" target="_blank" rel="noopener">syllabus</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">course site</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">materials</a>
+        </div> -->
+        <div class="sep"></div>
+      </div>
+    </article>
+
+    <!-- Example 2 -->
+    <article class="course">
+      <div>
+        <div class="title">STAT 220: Statistical Methods and Applications</div>
+        <div class="role">Spring 2023: Teaching Assistant</div>
+        <div class="role">Autumn 2023: Teaching Assistant</div>
+        <div class="role">Spring 2024: Teaching Assistant</div>
+        <div class="role">Autumn 2024: Teaching Assistant</div>
+        <div class="sep"></div>
+      </div>
+    </article>
+
+    <!-- Example 3 -->
+    <article class="course">
+      <div>
+        <div class="title">2020 UChicago Statistics and Data Science Bootcamp</div>
+        <div class="role">Teaching Assistant</div>
+        <div class="btns">
+          <a class="btn" href="https://bootcamp.uchicago.edu/data-science/" target="_blank" rel="noopener">WEBSITE</a>
+        </div>
+        <div class="sep"></div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ===== Mentoring (optional) =====
+  <section style="margin-top:34px">
+    <h2 style="font-size:28px;margin:6px 0 12px">mentoring</h2>
+    <div class="courses" style="gap:18px">
+      <article class="course">
+        <div><span class="chip gray">2025</span></div>
+        <div>
+          <div class="title">Undergraduate research projects (advised/mentored)</div>
+          <p class="desc">Diffusion models for PDE inverse problems; RL for test pattern optimization; topic modeling with weak-ℓ₀ sparsity.</p>
+        </div>
+      </article>
+    </div>
+  </section> -->
+
+</div>
+
+<!-- ===== Theme toggle + active-link script (same as index) ===== -->
+<script>
+(function(){
+  const key="site-theme";
+  const saved=localStorage.getItem(key);
+  const prefersDark=window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const start=saved || (prefersDark?"dark":"light");
+  document.documentElement.setAttribute("data-theme", start);
+  const icon=document.getElementById("themeIcon");
+  const setIcon=(mode)=>{
+    icon.innerHTML = mode==="dark"
+      ? '<path d="M12 4V2M12 22v-2M4 12H2m20 0h-2M5 5 3.6 3.6M20.4 20.4 19 19M5 19 3.6 20.4M20.4 3.6 19 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="currentColor"/>'
+      : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/>';
+  };
+  setIcon(start);
+  document.getElementById("themeToggle").onclick=()=>{
+    const now=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+    document.documentElement.setAttribute("data-theme", now);
+    localStorage.setItem(key, now); setIcon(now);
+  };
+})();
+(function(){ // mark active nav
+  const here = location.pathname.replace(/\/+$/,'') || "/index.html";
+  document.querySelectorAll('.topnav a').forEach(a=>{
+    const href=a.getAttribute('href').replace(/\/+$/,'');
+    if(href===here){ a.classList.add('active'); }
+  });
+})();
+</script>
+</body>
+</html>

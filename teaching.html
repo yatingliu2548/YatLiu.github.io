@@ -31,9 +31,24 @@
   .hr{height:1px;background:var(--line);margin:16px 0 24px}
 
   /* ===== Teaching list ===== */
-  .courses{display:grid;gap:26px}
-  .course{display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:start}
-  @media (max-width:720px){.course{grid-template-columns:1fr}}
+  .courses{display:block; gap:0; }
+  .course{
+    display:block;               /* kill the grid */
+    padding:0 0 14px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .course:last-child{ border-bottom:0; }
+  .course .title{ 
+    font-size:18px; 
+    font-weight:700; 
+    margin:0 0 6px; 
+  }
+  .course .role{ 
+    display:block;               /* each line on its own row */
+    margin:0 0 4px;
+    color:var(--muted);
+  }
+  .sep{ display:none; }          /* you don't need the extra separator */
 
   /* right content */
   .title{font-size:20px;font-weight:700;margin:6px 0 10px}
